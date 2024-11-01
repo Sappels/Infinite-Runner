@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public Road road;
     public int currentPos;
+    public bool isRotating;
 
     private Rigidbody rb;
 
@@ -17,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
+        ResetRoadBools();
         rb = GetComponent<Rigidbody>();
         currentPos = 4;
         transform.position = road.positions[currentPos].transform.position;
@@ -24,7 +26,10 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        Move();
+        if (!GameManager.Instance.isGamePaused)
+        {
+            Move();
+        }
         CheckCurrentRoad();
     }
 
@@ -45,14 +50,17 @@ public class PlayerMovement : MonoBehaviour
 
         if (currentPos == 2)
         {
-            StartCoroutine(road.mapRotation.RotateMapTowards(90, 200));
+            StopAllCoroutines();
+            StartCoroutine(RotatePlayerTowards(-90, 2000));
         }
         else if (currentPos == 3 || currentPos == 5)
         {
-            StartCoroutine(road.mapRotation.RotateMapTowards(0, 200));
+            StopAllCoroutines();
+            StartCoroutine(RotatePlayerTowards(0, 2000));
         }else if (currentPos == 6)
         {
-            StartCoroutine(road.mapRotation.RotateMapTowards(-90, 200));
+            StopAllCoroutines();
+            StartCoroutine(RotatePlayerTowards(90, 2000));
         }
     }
 
@@ -124,13 +132,30 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-
     private void ResetRoadBools()
     {
         // Reset all road bools to false
         GameManager.Instance.isOnRoad1 = false;
         GameManager.Instance.isOnRoad2 = false;
         GameManager.Instance.isOnRoad3 = false;
+    }
+
+    public IEnumerator RotatePlayerTowards(float z, float rotationSpeed)
+    {
+        isRotating = true;
+        Quaternion targetRotation = Quaternion.Euler(0, 0, z);
+
+        while (Quaternion.Angle(transform.rotation, targetRotation) > 0.01f)
+        {
+            // Rotate towards target rotation
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+            yield return null; // Wait for the next frame
+        }
+
+        // Snap rotation to the target rotation to avoid overshooting
+        transform.rotation = targetRotation;
+        isRotating = false;
+        SetPosition();
     }
 
 }

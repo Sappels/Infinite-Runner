@@ -34,6 +34,7 @@ public class Spawner : MonoBehaviour
                 onMyRoadForTooLong = GameManager.Instance.isOnRoad3;
                 break;
             default:
+                onMyRoadForTooLong = false;
                 break;
         }
     }
@@ -62,7 +63,7 @@ public class Spawner : MonoBehaviour
         obstacle.transform.SetParent(road.transform);
 
         GameManager.Instance.allObstacles.Add(obstacle);
-        yield return new WaitForSeconds(Random.Range(0.5f, 1.0f));
+        yield return new WaitForSeconds(Random.Range(1f, 1.3f));
         StartCoroutine(SpawnObstacle());
     }
 

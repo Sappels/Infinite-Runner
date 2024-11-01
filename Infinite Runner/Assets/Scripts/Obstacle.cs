@@ -21,6 +21,16 @@ public class Obstacle : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             Debug.Log("Ouch!");
+            GameManager.Instance.youDiedMenu.SetActive(true);
+            GameManager.Instance.SaveHighScore();
+            GameManager.Instance.LoadHighScore();
+            GameManager.Instance.StopOrStartGame();
+        }
+
+        if (other.gameObject.CompareTag("ObstacleKiller"))
+        {
+            Destroy(this.gameObject);
+            GameManager.Instance.allObstacles.Remove(this.gameObject);
         }
     }
 }
