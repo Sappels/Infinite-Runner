@@ -29,8 +29,8 @@ public class PlayerMovement : MonoBehaviour
         if (!GameManager.Instance.isGamePaused)
         {
             Move();
+            CheckCurrentRoad();
         }
-        CheckCurrentRoad();
     }
 
     private void Move()
@@ -39,19 +39,18 @@ public class PlayerMovement : MonoBehaviour
         {
             if (currentPos == 0) return;
             currentPos--;
-            SetPosition();
         }
         else if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
         {
             if (currentPos == 8) return;
             currentPos++;
-            SetPosition();
         }
+            SetPosition();
 
         if (currentPos == 2)
         {
             StopAllCoroutines();
-            StartCoroutine(RotatePlayerTowards(-90, 2000));
+            StartCoroutine(RotatePlayerTowards(-45, 2000));
         }
         else if (currentPos == 3 || currentPos == 5)
         {
@@ -60,7 +59,7 @@ public class PlayerMovement : MonoBehaviour
         }else if (currentPos == 6)
         {
             StopAllCoroutines();
-            StartCoroutine(RotatePlayerTowards(90, 2000));
+            StartCoroutine(RotatePlayerTowards(45, 2000));
         }
     }
 
@@ -121,12 +120,15 @@ public class PlayerMovement : MonoBehaviour
         switch (roadIndex)
         {
             case 1:
+                Debug.Log("road1");
                 GameManager.Instance.isOnRoad1 = value;
                 break;
             case 2:
+                Debug.Log("road2");
                 GameManager.Instance.isOnRoad2 = value;
                 break;
             case 3:
+                Debug.Log("road3");
                 GameManager.Instance.isOnRoad3 = value;
                 break;
         }

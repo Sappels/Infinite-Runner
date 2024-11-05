@@ -53,6 +53,7 @@ public class Spawner : MonoBehaviour
         }
         else
         {
+            Debug.Log("Spawning Wall");
              obstacle = Instantiate(
                 wall,
                 spawners[1].transform.position,
