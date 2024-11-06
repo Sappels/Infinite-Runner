@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7396288829743019451}
   - component: {fileID: 354212980380325039}
   - component: {fileID: 8588293047904330805}
+  - component: {fileID: 5676229047307046507}
   m_Layer: 0
   m_Name: ObstacleBush1
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 5964729114634563814}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.59, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2.310037, y: 2.310037, z: 2.310037}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -83,6 +84,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &5676229047307046507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5964729114634563814}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a96cf18e3e5bef449123662e4a20485, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6352158550218763581
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,6 +107,7 @@ GameObject:
   - component: {fileID: 941835388387246597}
   - component: {fileID: 3285031501903182833}
   - component: {fileID: 4137178516899373011}
+  - component: {fileID: 2359527128472316239}
   m_Layer: 0
   m_Name: ObstacleBush1
   m_TagString: Untagged
@@ -110,7 +124,7 @@ Transform:
   m_GameObject: {fileID: 6352158550218763581}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -2.0076685}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -150,4 +164,23 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1.4378538, y: 1, z: 1.4080338}
-  m_Center: {x: 0.054840565, y: 0, z: -0.0595901}
+  m_Center: {x: 0.054840565, y: 0.53, z: -0.0595901}
+--- !u!114 &2359527128472316239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6352158550218763581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f77147bdbc476a4781a8716597f7489, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rayDistance: 50
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  meshRenderer: {fileID: 8588293047904330805}
+  isObstacle: 1
+  needsOffset: 0

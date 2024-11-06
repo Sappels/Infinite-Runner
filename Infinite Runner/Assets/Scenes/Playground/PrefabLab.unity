@@ -599,10 +599,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4137178516899373011, guid: 010094e3a0c743e4cb4c8a1eb52f95f5,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.44
+      objectReference: {fileID: 0}
     - target: {fileID: 6352158550218763581, guid: 010094e3a0c743e4cb4c8a1eb52f95f5,
         type: 3}
       propertyPath: m_Name
       value: ObstacleBush1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7396288829743019451, guid: 010094e3a0c743e4cb4c8a1eb52f95f5,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -617,6 +627,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1985104669835693026, guid: fe070bda94a5e9d409fdc6f1ee861204,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4403257363621487818, guid: fe070bda94a5e9d409fdc6f1ee861204,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -763,6 +778,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 404725218196761020, guid: 4da7461260e52d644a4191ba9f96a786,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.46
+      objectReference: {fileID: 0}
+    - target: {fileID: 4904753451981387824, guid: 4da7461260e52d644a4191ba9f96a786,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7481002984647457335, guid: 4da7461260e52d644a4191ba9f96a786,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -771,7 +796,7 @@ PrefabInstance:
     - target: {fileID: 7481002984647457335, guid: 4da7461260e52d644a4191ba9f96a786,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.502
       objectReference: {fileID: 0}
     - target: {fileID: 7481002984647457335, guid: 4da7461260e52d644a4191ba9f96a786,
         type: 3}

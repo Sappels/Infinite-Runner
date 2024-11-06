@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4403257363621487818}
   - component: {fileID: 417061823928995542}
   - component: {fileID: 3436102635681440250}
+  - component: {fileID: 1864545546749378655}
   m_Layer: 0
   m_Name: ObstacleRock1
   m_TagString: Untagged
@@ -66,8 +67,27 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.208349, y: 1.1213745, z: 1.2745275}
-  m_Center: {x: 0.026476026, y: -0.060687304, z: 0.015232205}
+  m_Size: {x: 0.6072123, y: 1.1213745, z: 0.7584108}
+  m_Center: {x: -0.020104408, y: -0.060687304, z: -0.04567784}
+--- !u!114 &1864545546749378655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6197384295793904417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f77147bdbc476a4781a8716597f7489, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rayDistance: 50
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  meshRenderer: {fileID: 7931927841036407267}
+  isObstacle: 1
+  needsOffset: 1
 --- !u!1 &9210592093136747565
 GameObject:
   m_ObjectHideFlags: 0
@@ -79,6 +99,7 @@ GameObject:
   - component: {fileID: 1985104669835693026}
   - component: {fileID: 1511718088497806257}
   - component: {fileID: 7931927841036407267}
+  - component: {fileID: 4973257274519774404}
   m_Layer: 0
   m_Name: ObstacleRock1
   m_TagString: Untagged
@@ -94,13 +115,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9210592093136747565}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.207, z: 0}
-  m_LocalScale: {x: 1.9016, y: 1.9016, z: 1.9016}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalPosition: {x: 0.017692, y: 0, z: -0.004174}
+  m_LocalScale: {x: 1, y: 3.24, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4403257363621487818}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!33 &1511718088497806257
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -151,3 +172,15 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &4973257274519774404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9210592093136747565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a96cf18e3e5bef449123662e4a20485, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

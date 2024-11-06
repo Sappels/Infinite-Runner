@@ -5,23 +5,32 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public Road road;
-    public int currentPos;
-    public bool isRotating;
+    public CameraSwitcher switcher;
+    private SnapToGround snap;
+    public GameObject dustCloudFx;
 
     private Rigidbody rb;
+
+    public int currentPos;
+    public bool isRotating;
 
     private float timeOnCurrentRoad;         // Time spent on the current road
     private float requiredTimeOnRoad = 5f;   // Time required to set the bool to true
 
     private int currentRoadIndex = -1;
 
+    public Animator playerAnimator;
+
+
 
     void Start()
     {
         ResetRoadBools();
         rb = GetComponent<Rigidbody>();
+        snap = GetComponent<SnapToGround>();
         currentPos = 4;
-        transform.position = road.positions[currentPos].transform.position;
+        transform.position = new Vector3(road.positions[currentPos].transform.position.x, snap.SnapPlayerToGroundPosition().y, road.positions[currentPos].transform.position.z);
+        Invoke("SwitchToSprintAnimation", 5f);
     }
 
     void Update()
@@ -50,15 +59,18 @@ public class PlayerMovement : MonoBehaviour
         if (currentPos == 2)
         {
             StopAllCoroutines();
+            switcher.SwitchCamera(0);
             StartCoroutine(RotatePlayerTowards(-45, 2000));
         }
         else if (currentPos == 3 || currentPos == 5)
         {
             StopAllCoroutines();
+            switcher.SwitchCamera(1);
             StartCoroutine(RotatePlayerTowards(0, 2000));
         }else if (currentPos == 6)
         {
             StopAllCoroutines();
+            switcher.SwitchCamera(2);
             StartCoroutine(RotatePlayerTowards(45, 2000));
         }
     }
@@ -66,6 +78,7 @@ public class PlayerMovement : MonoBehaviour
     public void SetPosition()
     {
         transform.position = road.positions[currentPos].transform.position;
+        //transform.position = new Vector3(road.positions[currentPos].transform.position.x, snap.SnapPlayerToGroundPosition().y, road.positions[currentPos].transform.position.z);
     }
     private int GetRoadIndex(int position)
     {
@@ -120,15 +133,12 @@ public class PlayerMovement : MonoBehaviour
         switch (roadIndex)
         {
             case 1:
-                Debug.Log("road1");
                 GameManager.Instance.isOnRoad1 = value;
                 break;
             case 2:
-                Debug.Log("road2");
                 GameManager.Instance.isOnRoad2 = value;
                 break;
             case 3:
-                Debug.Log("road3");
                 GameManager.Instance.isOnRoad3 = value;
                 break;
         }
@@ -140,6 +150,13 @@ public class PlayerMovement : MonoBehaviour
         GameManager.Instance.isOnRoad1 = false;
         GameManager.Instance.isOnRoad2 = false;
         GameManager.Instance.isOnRoad3 = false;
+    }
+
+    private void SwitchToSprintAnimation()
+    {
+        playerAnimator.SetTrigger("timeToSprint");
+        dustCloudFx.SetActive(true);
+        GameManager.Instance.speed += 10f;
     }
 
     public IEnumerator RotatePlayerTowards(float z, float rotationSpeed)

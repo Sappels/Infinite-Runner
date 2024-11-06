@@ -50,6 +50,7 @@ public class Spawner : MonoBehaviour
                 randomSpawner.transform.position,
                 randomSpawner.transform.rotation
             );
+            obstacle.name = obstacle.name + randomSpawner.name;
         }
         else
         {

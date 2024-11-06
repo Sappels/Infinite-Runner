@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
 
     public bool isGamePaused = false;
 
+
     public static GameManager Instance { get; private set; }
 
     void Awake()

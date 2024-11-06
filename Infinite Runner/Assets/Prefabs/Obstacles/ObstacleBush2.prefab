@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4904753451981387824}
   - component: {fileID: 5474005569245551803}
   - component: {fileID: 4666399122382567511}
+  - component: {fileID: 2514548088133860182}
   m_Layer: 0
   m_Name: ObstacleBush2
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 1476592708260557590}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.602, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2.6042914, y: 2.6042914, z: 2.6042914}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -83,6 +84,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &2514548088133860182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1476592708260557590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a96cf18e3e5bef449123662e4a20485, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8515950222885527862
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,6 +107,7 @@ GameObject:
   - component: {fileID: 7481002984647457335}
   - component: {fileID: 368334016095944966}
   - component: {fileID: 404725218196761020}
+  - component: {fileID: -8368994583824987665}
   m_Layer: 0
   m_Name: ObstacleBush2
   m_TagString: Untagged
@@ -150,4 +164,23 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!114 &-8368994583824987665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8515950222885527862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f77147bdbc476a4781a8716597f7489, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rayDistance: 50
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  meshRenderer: {fileID: 4666399122382567511}
+  isObstacle: 1
+  needsOffset: 0

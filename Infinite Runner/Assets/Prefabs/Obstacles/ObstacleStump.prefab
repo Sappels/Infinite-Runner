@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6015008319833373964}
   - component: {fileID: 6641739680085499634}
   - component: {fileID: 8848395427133201314}
+  - component: {fileID: 4421792484962070109}
   m_Layer: 0
   m_Name: ObstacleStump
   m_TagString: Untagged
@@ -28,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1.5461, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8165327975778735667}
@@ -67,7 +68,26 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!114 &4421792484962070109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3877076788863875958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f77147bdbc476a4781a8716597f7489, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rayDistance: 50
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  meshRenderer: {fileID: 8278440368764798342}
+  isObstacle: 1
+  needsOffset: 0
 --- !u!1 &8359604025433697644
 GameObject:
   m_ObjectHideFlags: 0
@@ -79,6 +99,7 @@ GameObject:
   - component: {fileID: 8165327975778735667}
   - component: {fileID: 5766896388606425878}
   - component: {fileID: 8278440368764798342}
+  - component: {fileID: 5577835876975161619}
   m_Layer: 0
   m_Name: ObstacleStump
   m_TagString: Untagged
@@ -95,7 +116,7 @@ Transform:
   m_GameObject: {fileID: 8359604025433697644}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.572, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.8603, y: 1.8603, z: 1.8603}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -151,3 +172,15 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &5577835876975161619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8359604025433697644}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a96cf18e3e5bef449123662e4a20485, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

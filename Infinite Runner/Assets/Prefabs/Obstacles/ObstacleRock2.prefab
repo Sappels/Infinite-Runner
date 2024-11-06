@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5992645800064596475}
   - component: {fileID: 228099680454128434}
   - component: {fileID: 7551937358593288711}
+  - component: {fileID: 485904886431237249}
   m_Layer: 0
   m_Name: ObstacleRock2
   m_TagString: Untagged
@@ -26,9 +27,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 647201853144852178}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.01, z: 0}
-  m_LocalScale: {x: 0.6052637, y: 0.6052637, z: 0.6052637}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.024398, y: 0, z: -0.019959}
+  m_LocalScale: {x: 0.9, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5018012202505820718}
@@ -83,6 +84,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &485904886431237249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 647201853144852178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a96cf18e3e5bef449123662e4a20485, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &972693306613254149
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,6 +107,7 @@ GameObject:
   - component: {fileID: 5018012202505820718}
   - component: {fileID: 8851689127807803847}
   - component: {fileID: 2381916865749195066}
+  - component: {fileID: -8811064065817933431}
   m_Layer: 0
   m_Name: ObstacleRock2
   m_TagString: Untagged
@@ -109,14 +123,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 972693306613254149}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0403, y: 0.087, z: -7.6025}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5992645800064596475}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!114 &8851689127807803847
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,5 +163,24 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.3546495, y: 1, z: 1.1250167}
-  m_Center: {x: -0.051288962, y: 0, z: 0.019250631}
+  m_Size: {x: 1.8680267, y: 0.58320796, z: 0.7923387}
+  m_Center: {x: 0.24005672, y: -0.015615344, z: 0.00902611}
+--- !u!114 &-8811064065817933431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 972693306613254149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f77147bdbc476a4781a8716597f7489, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rayDistance: 50
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  meshRenderer: {fileID: 7551937358593288711}
+  isObstacle: 1
+  needsOffset: 1

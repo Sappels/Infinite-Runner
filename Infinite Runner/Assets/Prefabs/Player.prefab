@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2494411408626132448}
   - component: {fileID: 7910483261772335343}
   - component: {fileID: 4477335783399353261}
+  - component: {fileID: 945852033105281318}
   - component: {fileID: 2110525503911476981}
   m_Layer: 0
   m_Name: Player
@@ -122,8 +123,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   road: {fileID: 0}
+  switcher: {fileID: 0}
   currentPos: 0
   isRotating: 0
+  playerAnimator: {fileID: 8078491351890795688}
+--- !u!114 &945852033105281318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2409920953838153812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f77147bdbc476a4781a8716597f7489, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rayDistance: 50
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  meshRenderer: {fileID: 2494411408626132448}
+  isObstacle: 0
+  needsOffset: 0
 --- !u!54 &2110525503911476981
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5067,6 +5089,12 @@ PrefabInstance:
 --- !u!4 &6694616218680915405 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1438546959266459337, guid: 60770bdb4dc667c45bea53db0339dc05,
+    type: 3}
+  m_PrefabInstance: {fileID: 5701191185322793732}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &8078491351890795688 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4540229000190281644, guid: 60770bdb4dc667c45bea53db0339dc05,
     type: 3}
   m_PrefabInstance: {fileID: 5701191185322793732}
   m_PrefabAsset: {fileID: 0}

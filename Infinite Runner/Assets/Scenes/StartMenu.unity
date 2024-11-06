@@ -903,7 +903,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.5
+  m_Value: 0.073
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1124,6 +1124,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1002378273653234900, guid: 63d1300510970ca4db34247f9c4fb287,
+        type: 3}
+      propertyPath: maxSpeed
+      value: 90
+      objectReference: {fileID: 0}
     - target: {fileID: 3535384054329770123, guid: 63d1300510970ca4db34247f9c4fb287,
         type: 3}
       propertyPath: m_Name
@@ -1893,9 +1898,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9027433874551764130, guid: 898d5311ed331c443b01912cecc87dc9,
         type: 3}
+      propertyPath: m_Volume
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9027433874551764130, guid: 898d5311ed331c443b01912cecc87dc9,
+        type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: db04b4cd08604294cb6e5df0a6afa282, type: 3}
+      objectReference: {fileID: 8300000, guid: 18c00865c0137d346926820532c2c904, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

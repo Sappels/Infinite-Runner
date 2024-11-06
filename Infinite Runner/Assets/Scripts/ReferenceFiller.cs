@@ -19,7 +19,6 @@ public class ReferenceFiller : MonoBehaviour
     [SerializeField] private Button pausedMenuContinuePlayingButton;
 
 
-
     private void Start()
     {
         //GameManager references and values
