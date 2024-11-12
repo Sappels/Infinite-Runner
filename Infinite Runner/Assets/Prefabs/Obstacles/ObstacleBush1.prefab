@@ -144,6 +144,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
+  isWave: 0
+  currentPos: 0
 --- !u!65 &4137178516899373011
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -163,8 +165,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.4378538, y: 1, z: 1.4080338}
-  m_Center: {x: 0.054840565, y: 0.53, z: -0.0595901}
+  m_Size: {x: 0.98710716, y: 1, z: 0.8452885}
+  m_Center: {x: 0.06112331, y: 0.53, z: -0.054546416}
 --- !u!114 &2359527128472316239
 MonoBehaviour:
   m_ObjectHideFlags: 0

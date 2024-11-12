@@ -17,6 +17,7 @@ public class ReferenceFiller : MonoBehaviour
     [SerializeField] private Button restartButton;
     [SerializeField] private Slider musicVolumeSlider;
     [SerializeField] private Button pausedMenuContinuePlayingButton;
+    [SerializeField] private Tsunami tsunami;
 
 
     private void Start()
@@ -35,5 +36,8 @@ public class ReferenceFiller : MonoBehaviour
         AudioManager.Instance.musicVolumeSlider = musicVolumeSlider;
         pausedMenuContinuePlayingButton.onClick.AddListener(GameManager.Instance.StopOrStartGame);
         pausedMenuContinuePlayingButton.onClick.AddListener(() => GameManager.Instance.pausedMenu.SetActive(false));
+
+        //Tsunami reference
+        GameManager.Instance.tsunami = tsunami;
     }
 }

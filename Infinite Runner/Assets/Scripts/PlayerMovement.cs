@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     public Road road;
     public CameraSwitcher switcher;
     private SnapToGround snap;
-    public GameObject dustCloudFx;
+    public ParticleSystem dustCloudFx;
 
     private Rigidbody rb;
 
@@ -20,7 +20,6 @@ public class PlayerMovement : MonoBehaviour
     private int currentRoadIndex = -1;
 
     public Animator playerAnimator;
-
 
 
     void Start()
@@ -40,6 +39,7 @@ public class PlayerMovement : MonoBehaviour
             Move();
             CheckCurrentRoad();
         }
+
     }
 
     private void Move()
@@ -60,7 +60,7 @@ public class PlayerMovement : MonoBehaviour
         {
             StopAllCoroutines();
             switcher.SwitchCamera(0);
-            StartCoroutine(RotatePlayerTowards(-45, 2000));
+            StartCoroutine(RotatePlayerTowards(-33.3f, 2000));
         }
         else if (currentPos == 3 || currentPos == 5)
         {
@@ -71,14 +71,14 @@ public class PlayerMovement : MonoBehaviour
         {
             StopAllCoroutines();
             switcher.SwitchCamera(2);
-            StartCoroutine(RotatePlayerTowards(45, 2000));
+            StartCoroutine(RotatePlayerTowards(33.3f, 2000));
         }
     }
 
     public void SetPosition()
     {
         transform.position = road.positions[currentPos].transform.position;
-        //transform.position = new Vector3(road.positions[currentPos].transform.position.x, snap.SnapPlayerToGroundPosition().y, road.positions[currentPos].transform.position.z);
+        snap.UpdatePlayerYPosition();
     }
     private int GetRoadIndex(int position)
     {
@@ -155,7 +155,10 @@ public class PlayerMovement : MonoBehaviour
     private void SwitchToSprintAnimation()
     {
         playerAnimator.SetTrigger("timeToSprint");
-        dustCloudFx.SetActive(true);
+        Vector3 dustCloudPos = dustCloudFx.transform.localPosition;
+        dustCloudPos.y = 0.3f;
+        dustCloudFx.transform.localPosition = dustCloudPos;
+        dustCloudFx.Play();
         GameManager.Instance.speed += 10f;
     }
 

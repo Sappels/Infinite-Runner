@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
     public GameObject youDiedMenu;
     public GameObject pausedMenu;
 
+    public Tsunami tsunami;
+
     public Volume volume;
     public DepthOfField depthOfField;
 
@@ -28,9 +30,9 @@ public class GameManager : MonoBehaviour
     public bool isOnRoad1;
     public bool isOnRoad2;
     public bool isOnRoad3;
+    public bool areaFlooded;
 
     public bool isGamePaused = false;
-
 
     public static GameManager Instance { get; private set; }
 
@@ -60,10 +62,18 @@ public class GameManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Debug.Log("Pressed Escape");
             pausedMenu.SetActive(true);
             StopOrStartGame();
         }
+
+    }
+
+    public void PlayerDeath()
+    {
+        StopOrStartGame();
+        youDiedMenu.SetActive(true);
+        SaveHighScore();
+        LoadHighScore();
     }
 
     private void KeepTrackOfScore()
@@ -109,6 +119,7 @@ public class GameManager : MonoBehaviour
             Destroy(obstacle);
         }
         allObstacles.Clear();
+        tsunami.Reset();
         StopOrStartGame();
     }
 
@@ -128,6 +139,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
         SceneManager.LoadScene(sceneName);
         GameManager.Instance.speed = 30f;
+        tsunami.Reset();
     }
 
     public void SaveHighScore()

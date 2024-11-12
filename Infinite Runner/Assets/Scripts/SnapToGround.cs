@@ -6,9 +6,12 @@ public class SnapToGround : MonoBehaviour
     public LayerMask groundLayer;           // Layer for ground objects
     private float heightOffset;             // Calculated offset to align the model's base to the ground
     public MeshRenderer meshRenderer;
+    public Transform meshTransform;
 
     public bool isObstacle;
     public bool needsOffset;
+
+    private bool snap;
 
     void Start()
     {
@@ -19,7 +22,6 @@ public class SnapToGround : MonoBehaviour
             SnapObstacleToGroundPosition();
         }
     }
-
     void CalculateHeightOffset()
     {
         
@@ -41,7 +43,7 @@ public class SnapToGround : MonoBehaviour
         Vector3 rayOrigin = transform.position;
 
         // Cast a ray downwards from the current position
-        if (Physics.Raycast(rayOrigin, Vector3.down, out hit, rayDistance, groundLayer))
+        if (Physics.Raycast(rayOrigin, transform.TransformDirection(Vector3.down), out hit, rayDistance, groundLayer))
         {
             // Snap to the point of contact on the ground, subtracting the calculated offset
             
@@ -54,13 +56,31 @@ public class SnapToGround : MonoBehaviour
         return hitData;
     }
 
+    public void UpdatePlayerYPosition()
+    {
+        RaycastHit hit;
+        Vector3 rayOrigin = transform.position;
+
+        // Cast a ray downwards from the player's current position
+        if (Physics.Raycast(rayOrigin, transform.TransformDirection(Vector3.down), out hit, rayDistance, groundLayer))
+        {
+            // Calculate the new Y position based on the ground's height, with heightOffset if necessary
+            Vector3 targetPosition = transform.position;
+            targetPosition.y = hit.point.y - 0.1f;
+
+            // Update only the Y position to keep player above the ground
+            meshTransform.position = targetPosition;
+        }
+    }
+
+
     void SnapObstacleToGroundPosition()
     {
         RaycastHit hit;
         Vector3 rayOrigin = transform.position;
 
         // Cast a ray downwards from the current position
-        if (Physics.Raycast(rayOrigin, Vector3.down, out hit, rayDistance, groundLayer))
+        if (Physics.Raycast(rayOrigin, transform.TransformDirection(Vector3.down), out hit, rayDistance, groundLayer))
         {
             // Snap to the point of contact on the ground, subtracting the calculated offset
             if (needsOffset)

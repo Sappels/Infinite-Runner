@@ -48,6 +48,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
+  isWave: 0
+  currentPos: 0
 --- !u!65 &8848395427133201314
 BoxCollider:
   m_ObjectHideFlags: 0
